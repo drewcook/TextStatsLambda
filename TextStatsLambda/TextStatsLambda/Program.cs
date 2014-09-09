@@ -11,7 +11,7 @@ namespace TextStatsLambda
         static void Main(string[] args)
         {
             //call textstats
-            TextStats("Mexican food can be very yummy at times.  It's not all about Ms. Jemima's syrup anymore.  Again, it is all nonsuperficial when it comes to nachos.");
+            TextStats("Mexican nachos are very tasty.");
 
             //keep console open
             Console.ReadKey();
@@ -27,11 +27,11 @@ namespace TextStatsLambda
             //print out number of words
             Console.WriteLine(list.Count);
             //print out number of vowels
-            Console.WriteLine(list.Where(x => x.Contains("aeiouAEIOU")));
+            Console.WriteLine("Number of vowels: " + input.Count(x => "aeiou".Contains((x).ToString().ToLower())));
             //print out number of consonants
-            Console.WriteLine(string.Join(", ", list.Where(x => !x.Contains("aeiouAEIOU., !'?;"))));
+            Console.WriteLine("Number of consenants: " + input.Count(x => "bcdfghjklmnpqrstvwxyz".Contains((x).ToString().ToLower())));
             //print out number of special characters
-            Console.WriteLine(list.Where(x => x.Contains(".,?!;'")));
+            Console.WriteLine("Number of special characters: " + input.Count(x => " ,.;':!?".Contains((x).ToString().ToLower())));
             //print out longest word
             Console.WriteLine(list.OrderByDescending(x => x.Length).First());
             //print out shortest word
